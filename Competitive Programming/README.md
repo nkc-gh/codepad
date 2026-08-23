@@ -165,15 +165,17 @@ Method A: n×n → **O(n²)** time, **O(1)** space.
 **3. Two pointers — single pass:**
 ```c
 int i = 0, j = n-1;
-while (i < j) { /* O(1) work */ i++; j--; }
+while (i < j) 
+{ i++; j--; } // O(n)
 ```
 Method A + rule 9: one combined pass → **O(n)**, not O(n²).
 
 **4. Recursive, uniform branching — Tower of Hanoi:**
 ```c
 void toh(int n, ...) {
-    if (n == 1) { print; return; }
-    toh(n-1, ...); print; toh(n-1, ...);
+    if (n == 1) { print; return; } // T(1) -> Base Case
+    toh(n-1, ...); print; // T(n-1)
+    toh(n-1, ...); // T(n-1)
 }
 ```
 Method C: `T(n) = 2·T(n-1) + O(1)` → substitution → `T(n)=2^(n-1)·c + 2^(n-1)-1` → **O(2ⁿ)**. Cross-checked (Method B) via brute count 1,3,7,15 → 2ⁿ-1, and the aⁿ shortcut. Space: stack depth n → **O(n)**.
