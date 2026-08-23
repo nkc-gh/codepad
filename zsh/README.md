@@ -13,8 +13,7 @@ Zsh scripts run through zsh directly, no separate compile step, no bytecode, no 
 - [History](#history)
 - [Sample code](#sample-code)
 - [How to run them](#how-to-run-them)
-- [Color codes zsh accepts](#color-codes-zsh-accepts)
-- [Shell built-ins: prompt, alias, export, source](#shell-built-ins)
+- [Shell built-ins:](#shell-built-ins)
 
 ## History
 
@@ -93,43 +92,6 @@ chmod +x hello_world.zsh   # do this once, grants execute permission
 ```
 **Shebang** (`#!...`) — "sharp" + "bang". When run directly (`./file`), the kernel reads the first two bytes; if they're `#!`, it treats the rest of the line as the exact program to run the file with. `#!/usr/bin/env zsh` finds `zsh` on `$PATH` via `env` — portable across machines. Only matters for direct execution; irrelevant when you type `zsh file.zsh` yourself.
 - **Login shell** — runs `.zprofile`/`.zlogin` in addition to `.zshrc`, only on actual login (SSH, TTY, or explicit `zsh -l`) — opening a new terminal window usually does NOT trigger this.
-
-## Color codes zsh accepts
-
-**1. Standard 8 ANSI colors** — oldest, most universal.
-```zsh
-PROMPT='%F{green}...%f'
-```
-| Code | Name |
-|---|---|
-| 30 | black |
-| 31 | red |
-| 32 | green |
-| 33 | yellow |
-| 34 | blue |
-| 35 | magenta |
-| 36 | cyan |
-| 37 | white |
-
-**2. Bold/bright variants** — via `%B`/`%b`, or `01;` prefix in `LS_COLORS`.
-```zsh
-export LS_COLORS="di=01;32"   # bold/bright green
-```
-
-**3. 256-color (Xterm extended) palette** — numbers 0–255.
-```zsh
-PROMPT='%F{202}...%f'   # 202 = bright orange
-```
-- 0–15: the 8 basic + 8 bright colors, as numbers
-- 16–231: a 6×6×6 RGB color cube (216 colors)
-- 232–255: 24-step grayscale ramp
-
-**4. True color / RGB hex (24-bit)** — most precise, exact hex.
-```zsh
-PROMPT='%F{#ff5f00}...%f'
-```
-
-**Note:** color rendering needs both zsh *and* the terminal to support it. Zsh can generate any of these codes, but the terminal emulator actually displaying them decides whether they show correctly. 8-color works everywhere; 256-color works on most modern terminals; true color hex needs explicit terminal support.
 
 ## Shell built-ins:
 
