@@ -89,7 +89,7 @@ guarantee I'd check that first before touching nums[0].
 
 
 ====================================================================
-COMPLEXITY (see README for Big O rules)
+COMPLEXITY
 ====================================================================
 
 1. TIME COMPLEXITY:
