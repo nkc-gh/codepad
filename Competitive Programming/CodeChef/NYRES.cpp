@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - New Year Resolution
+CodeChef - New Year Resolution (NYRES)
 ====================================================================
 
 Chef does exactly X push-ups every day, starting off 2026. If he
