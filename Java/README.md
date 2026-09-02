@@ -14,6 +14,10 @@ Bytecode runs on any machine that has a JVM.
 ## Index
 
 - [History](#history)
+- [Why The Java Filename Must Match The Public Class Name](#why-the-java-filename-must-match-the-public-class-name)
+- [JDK, JRE, JVM](#jdk-jre-jvm)
+- [How Java Code Really Compiles And Runs](#how-java-code-really-compiles-and-runs)
+
 
 ## History
 
