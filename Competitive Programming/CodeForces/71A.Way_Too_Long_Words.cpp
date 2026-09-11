@@ -1,6 +1,6 @@
 /*
 ====================================================================
-Codeforces 71A - Way Too Long Words
+Codeforces 71A - Way Too Long Words (Difficulty - 800)
 ====================================================================
 
 A word is "too long" if its length is strictly more than 10

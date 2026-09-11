@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - New Year Resolution (NYRES)
+CodeChef - New Year Resolution (NYRES) (Difficulty - 19)
 ====================================================================
 
 Chef does exactly X push-ups every day, starting off 2026. If he

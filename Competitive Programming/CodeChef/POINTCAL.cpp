@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - Point Calculation (POINTCAL)
+CodeChef - Point Calculation (POINTCAL) (Difficulty - 83)
 ====================================================================
 
 Your team played 3 group-stage games. You're given A wins, B draws,

@@ -1,6 +1,6 @@
 /*
 ====================================================================
-Codeforces 4A - Watermelon
+Codeforces 4A - Watermelon (Difficulty - 800)
 ====================================================================
 
 Pete and Billy have a watermelon weighing w kilos. They want to
