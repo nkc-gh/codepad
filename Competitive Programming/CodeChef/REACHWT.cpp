@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - Reach Weight (REACHWT)
+CodeChef - Reach Weight (REACHWT) (Difficulty - 530)
 ====================================================================
 
 Buy weights totaling exactly N kg. 1 kg weights cost 20 rupees each,

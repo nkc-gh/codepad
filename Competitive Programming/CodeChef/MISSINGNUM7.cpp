@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - Missing Number (MISSINGNUM7)
+CodeChef - Missing Number (MISSINGNUM7) (Difficulty - 151)
 ====================================================================
 
 Chef had 4 pieces of paper numbered 1, 2, 3, 4. He lost one, and the

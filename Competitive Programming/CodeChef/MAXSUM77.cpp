@@ -1,6 +1,6 @@
 /*
 ====================================================================
-CodeChef - Maximum Sum (MAXSUM77)
+CodeChef - Maximum Sum (MAXSUM77) (Difficulty - 990)
 ====================================================================
 
 Given an array A of N elements, remove either the first or last
