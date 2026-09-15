@@ -63,7 +63,6 @@ C++ = C + extra tools for writing safer, more reusable, more expressive code + O
   - [Virtual Destructors](#virtual-destructors)
   - [Abstract Classes And Pure Virtual Functions](#abstract-classes-and-pure-virtual-functions)
   - [Operator Overloading (Custom Classes)](#operator-overloading-custom-classes)
-        - [Overloading Unary Operators](#overloading-unary-operators)
   - [OOP Errors](#oop-errors)
 
 ## History
