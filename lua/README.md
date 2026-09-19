@@ -99,32 +99,74 @@ Lua has exactly one composite data structure: the **table** (`{ }`). No separate
 
 ## Scope: `local` vs `global`
 
-Declaring a variable without `local` makes it **global** — visible and overwritable from any other file/script running in the same host program. Always prefer `local`.
+### What is local and global
+
+Declaring a variable **without** `local` makes it **global** — visible and overwritable from anywhere else in the program, no matter which file wrote it. Declaring it **with** `local` locks it to the exact block of code (function or file) it was created in, and nowhere else.
 
 ```lua
-local x = 5   -- scoped to this file/chunk only
-y = 5         -- global, visible everywhere, avoid this
+local x = 5   -- local: only exists inside this block/file
+y = 5         -- global: visible everywhere, avoid this
 ```
 
-Each file loaded via `require` is its own scope ("chunk"). A `local` in one file is not automatically visible in another — every file must `require` what it needs itself, even the file that did the loading.
+### Simple example — two files
+
+**main.lua**
+```lua
+local a = 10
+b = 20
+```
+
+**main2.lua**
+```lua
+dofile("main.lua")
+print(a)
+print(b)
+```
+
+Running `lua main2.lua`:
+```text
+nil
+20
+```
+
+- `a` was declared `local` inside `main.lua` → sealed there. `main2.lua` has no idea it exists → `nil`.
+- `b` has no `local` → it's global → visible from `main2.lua` too → `20`.
+
+`dofile("main.lua")` is just what makes `main.lua`'s code actually *run* before `main2.lua` tries to read anything from it — without running it first, both `a` and `b` would be `nil` simply because that code never executed at all.
+
+### Why `local` can NEVER be reached from another file — no matter what
+
+This isn't a missing feature you can work around — it's a hard rule at the language level. A `local` variable lives on that file's own call stack while it runs, and once the file finishes, it's gone — there is no leftover copy anywhere for another file to go find, through any mechanism:
 
 ```lua
 -- main.lua
-local wezterm = require 'wezterm'
-local keys = require 'keybindings'
+local a = 10
 ```
+
 ```lua
--- keybindings.lua
-print(wezterm)                      -- ERROR: doesn't exist here
-local wezterm = require 'wezterm'   -- must fetch it again, itself
-print(wezterm)                      -- works now
+-- tries every possible way to reach `a` from outside
+dofile("main.lua");            print(a)  --> nil
+local x = require("main");     print(a)  --> nil
+local c = loadfile("main.lua"); c(); print(a)  --> nil
 ```
 
-**Why the first `print` doesn't work:**
-- `main.lua` runs and creates `local wezterm` — but this only lives inside main.lua's own private box.
-- `require 'keybindings'` opens keybindings.lua as a **brand-new, empty box**. Nothing from main.lua's box gets copied over.
-- Inside keybindings.lua, `print(wezterm)` looks in its own box — finds nothing, since it was never declared there. Lua treats it as `nil` ("doesn't exist").
-- The next line, `local wezterm = require 'wezterm'`, fetches a fresh copy into keybindings.lua's own box.
-- Now `print(wezterm)` works — it refers to the one just declared in this same file.
+Every single one prints `nil`. `dofile`, `require`, `loadfile` — none of them expose another file's locals. A **global**, by contrast, sits in one shared table Lua keeps for the whole running program (`_G`), which is exactly why any file can read or overwrite it. Locals never enter that shared table at all — there's simply nothing to fetch.
 
-**Mental model:** each `.lua` file is a separate room. Loading one file from another doesn't move furniture between rooms — the new room starts empty and has to bring in its own.
+### The only real doorway out: `return`
+
+The one and only way a file can hand a value to another file is by explicitly writing `return`:
+
+```lua
+-- main.lua
+local a = 10
+return a
+```
+
+```lua
+-- main2.lua
+local x = require("main")   -- x = 10, because main.lua RETURNED it
+print(x)   --> 10
+print(a)   --> still nil — `a` itself was never exposed, only its VALUE was handed over
+```
+
+Important distinction: `require` doesn't give you the other file's variable — it gives you **whatever that file put after `return`**, and you catch that value in a brand-new local variable of your own choosing. If `main.lua` has no `return` at all, `require` just gives back `true` (Lua's "loaded successfully, nothing returned" default) — completely unrelated to any local variable inside it, even one with a matching name.
