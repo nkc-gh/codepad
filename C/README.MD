@@ -522,53 +522,36 @@ Run time = while the program is running.
 
 ## Inspecting Compiled Code
 
-Machine code is the actual binary instruction form the CPU understands.
+`objdump -d` converts machine code back into assembly text — it reads the raw binary instructions already sitting in a compiled file and displays them as readable assembly. It doesn't create anything new, just translates what's already there.
 
-A compiled library like:
-
-```text
-/lib/x86_64-linux-gnu/libc.so.6
-```
-
-contains machine code. If opened as normal text, it looks unreadable because it is binary data.
-
-Tools like `objdump` can inspect compiled files.
-
-Example:
+Common `objdump` variations:
 
 ```bash
-objdump -T /lib/x86_64-linux-gnu/libc.so.6 | grep printf
+objdump -d file       # disassemble: machine code -> assembly text
+objdump -T file        # show dynamic symbol table (function names + their offsets)
+objdump -t file         # show symbol table (local + global symbols)
+objdump -h file          # show section headers (.text, .data, .bss, etc.)
+objdump -x file           # show all headers (file, section, symbol)
 ```
 
-This can show where `printf` exists inside the library.
-
-An address like:
-
-```text
-0x64300
-```
-
-is written in hexadecimal. The `0x` means base-16.
-
-This address is an offset inside the library file. It tells where `printf` starts inside `libc.so.6`.
-
-When the program runs, the operating system may load `libc.so.6` at a different place in memory each time. The final address can change, but the offset inside the library stays useful.
-
-Simple idea:
-
-```text
-real runtime address = base address of loaded library + function offset
-```
-
-Another command:
+If you want to see the **actual raw binary** (0s and 1s) instead of assembly, use `xxd`:
 
 ```bash
-objdump -d /lib/x86_64-linux-gnu/libc.so.6
+xxd file            # default hex dump, 16 bytes per line
+xxd -b file          # binary mode — shows actual 0s and 1s instead of hex, 6 bytes per line
+xxd -c N file         # show N bytes per line (e.g. -c 8, -c 20)
+xxd -l N file          # limit output to first N bytes only
+xxd -s N file           # start reading from byte offset N (skip ahead)
+xxd -p file              # plain hex dump, no offsets/ASCII column, just continuous hex
+xxd -r file               # reverse — convert a hex dump back into binary
 ```
 
-shows machine code as assembly-like text.
-
-It does not create new assembly code. It only reads existing machine code and displays it in a readable assembly form.
+Example — build a binary first, then inspect its raw bits:
+```bash
+gcc hello.c -o a.out
+objdump -d a.out
+xxd -b a.out
+```
 
 ## Variables And Data Types
 
