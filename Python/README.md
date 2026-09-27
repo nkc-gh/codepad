@@ -505,6 +505,23 @@ True
 
 Internally, `True` behaves like `1` and `False` behaves like `0` in arithmetic — `bool` is technically a subtype of `int` in Python — but printing a `bool` shows `True`/`False`, not `1`/`0`, unlike C's `printf("%d", isAdult)`, which would show `1`.
 
+### Truthy & Falsy
+
+Python has some values called truthy and falsy.
+
+**Falsy values:**
+```text
+- 0     # falsy
+- 0.0   # falsy
+- ""    # falsy (empty string)
+- None  # falsy
+- []    # falsy (empty list)
+- {}    # falsy (empty dictionary)
+- ()    # falsy (empty tuple)
+- False # falsy (obviously)
+```
+Rest all are truthy values. eg. 2, 3, True, "hi", [1,2], etc.
+
 ### None — Python's "No Value"
 
 `None` is a special, unique value representing the absence of a value, similar in purpose to C's `NULL`/`nullptr`, but it is its own distinct type (`NoneType`), not secretly the number `0` the way C's `NULL` traditionally was.
@@ -665,6 +682,40 @@ has_id = True
 
 if age >= 18 and has_id:
     print("Allowed in")
+```
+
+```python
+x = 0
+y = 5
+
+print(x and y)   # 0  → x is falsy, so "and" returns x (short-circuits immediately)
+print(x or y)    # 5  → x is falsy, so "or" skips x and returns y
+```
+
+`and` returns the first value if it's falsy, otherwise it returns the second value — e.g. `0 and 5` gives `0`, but `2 and 5` gives `5`. 
+
+`or` does the opposite: it returns the first value if it's truthy, otherwise the second value — e.g. `0 or 5` gives `5`, but `2 or 5` gives `2`. 
+
+`not` is different — it always converts to a real Boolean, flipping truthy to `False` and falsy to `True` — e.g. `not 0` gives `True`, `not 5` gives `False`.
+
+**NAND, NOR, XNOR** — no direct operators. You build them by combining what exists:
+
+```python
+a = True
+b = False
+
+nand = not (a and b)   # NAND = not AND
+nor  = not (a or b)    # NOR  = not OR
+xnor = a == b          # XNOR = "are they equal?"
+```
+
+**XOR** — this one's a bit different. Python doesn't have a xor keyword for booleans, but it does have the ^ operator (originally a bitwise operator) which works as logical XOR on booleans:
+
+```python
+a = True
+b = False
+print(a ^ b)   # True  → exactly one is True
+print(a ^ a)   # False → both same
 ```
 
 ### is vs ==

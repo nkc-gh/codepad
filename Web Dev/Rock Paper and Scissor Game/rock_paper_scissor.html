@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper & Scissor</title>
+</head>
+<body>
+    <div class="main-box">
+        <h1 class="title">Rock Paper Scissor</h1>
+        <div class="circle-row">
+            <div class="circle" onclick="human_choice = 'Rock'; play_game()"><img src="stone.png" alt="Rock"></div>
+            <div class="circle" onclick="human_choice = 'Paper'; play_game()"><img src="paper.png" alt="Paper"></div>
+            <div class="circle" onclick="human_choice = 'Scissor'; play_game()"><img src="scissor.png" alt="Scissor"></div>
+        </div>
+        <h2 class="score">Score</h2>
+        <p class="live-score-text">Start !!!</p>
+        <div class="live-score">
+        <div class="you-score">
+            <p class="you-score-number">0</p>
+            <p class="you-score-text">You</p>
+        </div>
+        <div class="line"></div>
+        <div class="computer-score">
+            <p class="computer-score-number">0</p>
+            <p class="computer-score-text">Computer</p>
+        </div>
+        </div>
+        <div class="buttons">
+            <button class="reset" onclick="game_reset()">Reset</button>
+            <button class="Final-Score" onclick="final_score()">Final Score</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
