@@ -6,7 +6,7 @@ Codeforces 263A - Beautiful Matrix
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 14 September 09:45 PM                       |
-| Tags - implementation                                             |
+| Tags - implementation                                            |
 +------------------------------------------------------------------+
 
 Given a 5x5 matrix containing 24 zeroes and a single 1, find the

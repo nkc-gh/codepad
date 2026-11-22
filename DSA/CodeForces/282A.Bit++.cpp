@@ -6,7 +6,7 @@ Codeforces 282A - Bit++
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 13 September 14:29 PM                       |
-| Tags - implementation                                             |
+| Tags - implementation                                            |
 +------------------------------------------------------------------+
 
 Bit++ has exactly one variable x, starting at 0. A statement is

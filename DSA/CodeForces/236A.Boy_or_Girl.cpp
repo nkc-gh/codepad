@@ -6,7 +6,7 @@ Codeforces 236A - Boy or Girl
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 16 September 18:22 PM                       |
-| Tags - brute force, implementation, strings                       |
+| Tags - brute force, implementation, strings                      |
 +------------------------------------------------------------------+
 
 Given a username (lowercase English letters only, up to 100 chars),

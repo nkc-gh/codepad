@@ -6,7 +6,7 @@ Codeforces 50A - Domino piling
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 14 September 09:11 PM                       |
-| Tags - greedy, math                                               |
+| Tags - greedy, math                                              |
 +------------------------------------------------------------------+
 
 Given an M x N board and unlimited 2x1 dominoes (which may be

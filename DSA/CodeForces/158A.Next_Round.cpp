@@ -6,7 +6,7 @@ Codeforces 158A - Next Round
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 13 September 14:53 PM                       |
-| Tags - special problem, implementation                            |
+| Tags - special problem, implementation                           |
 +------------------------------------------------------------------+
 
 n participants took part in a contest, scores given in non-

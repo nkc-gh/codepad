@@ -5,8 +5,8 @@ Codeforces 791A - Bear and Big Brother
 
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
-| Date of Submission - 01 November 17:38 PM                         |
-| Tags - implementation                                             |
+| Date of Submission - 01 November 17:38 PM                        |
+| Tags - implementation                                            |
 +------------------------------------------------------------------+
 
 Limak weighs a and Bob weighs b. Each year Limak's weight triples

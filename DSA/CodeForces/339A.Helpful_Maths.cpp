@@ -6,7 +6,7 @@ Codeforces 339A - Helpful Maths
 +------------------------------------------------------------------+
 | Dificulty - 800                                                  |
 | Date of Submission - 20 October 12:17 PM                         |
-| Tags - greedy, implementation, sortings, strings                  |
+| Tags - greedy, implementation, sortings, strings                 |
 +------------------------------------------------------------------+
 
 Given a string containing digits 1, 2, 3 and '+' signs, rearrange
