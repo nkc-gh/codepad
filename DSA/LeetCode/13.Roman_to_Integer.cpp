@@ -5,7 +5,7 @@ LeetCode 13 - Roman to Integer
 
 +------------------------------------------------------------------+
 | Difficulty - Easy                                                |
-| Date of Submission - 01 September 23:39 PM                        |
+| Date of Submission - 01 September 23:39 PM                       |
 | Tags - hash table, math, string                                  |
 +------------------------------------------------------------------+
 

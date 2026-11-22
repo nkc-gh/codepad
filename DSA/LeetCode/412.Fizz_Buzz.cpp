@@ -5,7 +5,7 @@ LeetCode 412 - Fizz Buzz
 
 +------------------------------------------------------------------+
 | Difficulty - Easy                                                |
-| Date of Submission - 02 September 22:37 PM                        |
+| Date of Submission - 02 September 22:37 PM                       |
 | Tags - math, string, simulation                                  |
 +------------------------------------------------------------------+
 

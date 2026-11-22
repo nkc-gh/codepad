@@ -5,7 +5,7 @@ LeetCode 3110 - Score of a String
 
 +------------------------------------------------------------------+
 | Difficulty - Easy                                                |
-| Date of Submission - 21 October 00:41 AM                          |
+| Date of Submission - 21 October 00:41 AM                         |
 | Tags - string                                                    |
 +------------------------------------------------------------------+
 

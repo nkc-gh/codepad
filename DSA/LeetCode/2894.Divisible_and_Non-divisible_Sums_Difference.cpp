@@ -5,7 +5,7 @@ LeetCode 2894 - Divisible and Non-divisible Sums Difference
 
 +------------------------------------------------------------------+
 | Difficulty - Easy                                                |
-| Date of Submission - 15 September 23:01 PM                        |
+| Date of Submission - 15 September 23:01 PM                       |
 | Tags - math                                                      |
 +------------------------------------------------------------------+
 
