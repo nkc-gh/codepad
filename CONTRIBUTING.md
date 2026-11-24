@@ -278,3 +278,105 @@ Complexity Analysis
 Preserve the function signature required by the online judge. Before
 contributing, verify that the solution compiles and follows the expected
 format for its platform.
+
+## JavaScript
+
+### Naming Convention
+
+Use snake_case for JavaScript filenames.
+
+Examples:
+1. `hello_world.js`
+2. `add_two_numbers_hard_coded.js`
+3. `add_two_numbers_user_taken.js`
+
+### Documentation
+
+For comments in JavaScript files, use JSDoc-style comments.
+
+#### Installing JSDoc
+
+Install JSDoc globally or use it with `npx` via Node.js:
+
+```bash
+npm install -g jsdoc
+```
+
+Check that the tool is installed:
+
+```bash
+jsdoc --version
+```
+
+All JavaScript source files should use JSDoc-style comments where documentation
+is needed. JSDoc reads these comments and can generate documentation in HTML
+format.
+
+JSDoc comments use `/** ... */`.
+
+#### Multi-line JSDoc comments
+
+```javascript
+/**
+ * @file hello_world.js
+ * @description Prints a greeting to standard output.
+ */
+```
+
+Use the comment immediately before the file, function, class, or other item
+that it documents.
+
+#### Initial Tags
+
+The following tags are currently used in this repository:
+
+| Tag | Purpose |
+| --- | --- |
+| `@file` | Identifies the file being documented |
+| `@description` | Gives a detailed explanation of the file or function |
+| `@param` | Describes a function parameter along with its `{type}` |
+| `@returns` | Describes a function's return value along with its `{type}` |
+
+Example:
+
+```javascript
+/**
+ * @file hello_world.js
+ * @description Prints "Hello World" to standard output.
+ */
+
+/**
+ * Starts the program and prints Hello World.
+ *
+ * @description
+ * The program entry point writes Hello World to the standard output / console.
+ *
+ * @returns {void}
+ */
+function main() {
+    // Write Hello World to the standard output / console.
+    console.log("Hello World");
+}
+
+// Execute the main program entry point.
+main();
+```
+
+### Checking the Documentation
+
+Run the following command from the repository root or the JavaScript directory:
+
+```bash
+npx jsdoc JavaScript/ -d docs/js
+```
+
+#### HTML documentation
+
+Open the generated HTML documentation:
+
+```bash
+xdg-open docs/js/index.html
+```
+
+The generated HTML documentation will contain the documented files and
+descriptions from their JSDoc comments.
