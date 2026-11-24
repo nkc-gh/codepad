@@ -66,9 +66,7 @@ Update: [C/binary_search.c, hello_world.c ; C++/README.md]
 
 ## C and C++
 
-### Code Generation or Correction
-
-#### Naming Convention
+### Naming Convention
 
 Use snake_case for C and C++ filenames.
 
@@ -78,11 +76,11 @@ Examples:
 3. `hello_world.c`
 4. `add_two_numbers_user_taken.c`
 
-#### Documentation
+### Documentation
 
 For comments in C and C++ files, use Doxygen-style comments.
 
-##### Installing Doxygen
+#### Installing Doxygen
 
 On Ubuntu or Debian, install Doxygen and the tools required to generate both
 HTML and PDF documentation:
@@ -115,7 +113,7 @@ PDF.
 
 Doxygen comments use either `/** ... */` or `///`.
 
-##### Multi-line Doxygen comments
+#### Multi-line Doxygen comments
 
 ```cpp
 /**
@@ -124,7 +122,7 @@ Doxygen comments use either `/** ... */` or `///`.
  */
 ```
 
-##### Single-line Doxygen comments
+#### Single-line Doxygen comments
 
 ```cpp
 /// @brief Prints a greeting to standard output.
@@ -133,7 +131,7 @@ Doxygen comments use either `/** ... */` or `///`.
 Use the comment immediately before the file, function, class, or other item
 that it documents.
 
-##### Initial Tags
+#### Initial Tags
 
 The following tags are currently used in this repository:
 
@@ -173,7 +171,7 @@ int main(void) {
 }
 ```
 
-#### Checking the Documentation
+### Checking the Documentation
 
 The following commands should be run from the repository root.
 
@@ -201,7 +199,7 @@ Generate the documentation:
 doxygen Doxyfile
 ```
 
-##### HTML documentation
+#### HTML documentation
 
 Open the generated HTML documentation:
 
@@ -209,7 +207,7 @@ Open the generated HTML documentation:
 xdg-open docs/html/index.html
 ```
 
-##### PDF documentation
+#### PDF documentation
 
 Build the PDF from the generated LaTeX files:
 
